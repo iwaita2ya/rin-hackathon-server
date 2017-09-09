@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tree_kind: 1
+  diameter: 1
+  height: 1
+  class: 1
+  yield: 1
+  latitude: 9.99
+  longitudedecimal{11,8}: MyString
+  field_record: one
+
+two:
+  tree_kind: 1
+  diameter: 1
+  height: 1
+  class: 1
+  yield: 1
+  latitude: 9.99
+  longitudedecimal{11,8}: MyString
+  field_record: two

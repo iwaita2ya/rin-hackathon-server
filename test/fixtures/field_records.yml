@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  management_area: 1
+  year: 1
+  group: 1
+  bakku_area: MyString
+  small_group: 1
+  area: 1
+  tree_id: 1
+
+two:
+  management_area: 1
+  year: 1
+  group: 1
+  bakku_area: MyString
+  small_group: 1
+  area: 1
+  tree_id: 1
