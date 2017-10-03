@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bangou: 1
+  jushu: 1
+  tyokkei: 1
+  jukou: 1
+  hini: 1
+  budomari: 9.99
+  lat: 9.99
+  lon: 9.99
+  field_record: one
+
+two:
+  bangou: 1
+  jushu: 1
+  tyokkei: 1
+  jukou: 1
+  hini: 1
+  budomari: 9.99
+  lat: 9.99
+  lon: 9.99
+  field_record: two

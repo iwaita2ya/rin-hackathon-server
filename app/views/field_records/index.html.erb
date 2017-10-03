@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Field Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @field_records.each do |field_record| %>
+      <tr>
+        <td><%= link_to 'Show', field_record %></td>
+        <td><%= link_to 'Edit', edit_field_record_path(field_record) %></td>
+        <td><%= link_to 'Destroy', field_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Field Record', new_field_record_path %>
