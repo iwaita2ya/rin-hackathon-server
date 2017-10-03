@@ -39,6 +39,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'ruby-debug-ide', '0.6.1.beta9'
+  gem 'debase'
 end
 
 group :development do
