@@ -1,0 +1,66 @@
+h3 立木調査野帳
+h4 データ一覧
+table.table.table-bordered.table-striped.table-hover
+  thead.thead-inverse
+    tr
+      th
+        |ID
+      th
+        |管理区
+      th
+        |調査年度
+      th
+        |林班
+      th
+        |伐区
+      th
+        |支番
+      th
+        |小班
+      th
+        |区分
+      th
+        |代表樹種
+      th
+        |作成日
+      th
+        |最終更新日
+      th
+        |アクション
+  tbody
+    - @field_records.each do |field_record|
+      tr
+        th scope="row"
+          span = field_record.id
+        td
+          span = field_record.kanriku
+        td
+          span = field_record.nendo
+        td
+          span = field_record.rinpan
+        td
+          span = field_record.bakku
+        td
+          span = field_record.shiban
+        td
+          span = field_record.shouhan
+        td
+          span = field_record.kubun
+        td
+          span = field_record.daihyou
+        td
+          span = field_record.created_at
+        td
+          span = field_record.updated_at
+        td
+          span = link_to '詳細', field_record
+          '|
+          span = link_to '編集', edit_field_record_path(field_record)
+          '|
+          span = link_to '削除', field_record, data: { confirm: "#{field_record.id} を削除しますか?" }, method: :delete
+          '|
+          span = link_to 'pgpi出力', {:controller => :field_records, :action => :export_pgpi, :id => field_record.id}
+br
+
+= link_to '新規追加', new_field_record_path, :type => "button", :class => "btn btn-primary"
+= link_to '詳細データ一覧へ', field_record_details_path, :type => "button", :class => "btn btn-default"

@@ -1,0 +1,19 @@
+h1 Listing field_record_details
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @field_record_details.each do |field_record_detail|
+      tr
+        td = link_to 'Show', field_record_detail
+        td = link_to 'Edit', edit_field_record_detail_path(field_record_detail)
+        td = link_to 'Destroy', field_record_detail, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Field record detail', new_field_record_detail_path

@@ -1,0 +1,62 @@
+= form_for @field_record do |f|
+  table.table.table-bordered.table-hover.table-striped
+    thead
+      tr
+        th
+          |項目
+        th
+    tbody
+      tr
+        td
+          |ID
+        td
+          = f.text_field :id, value: @field_record.id
+      tr
+        td
+          |管理区
+        td
+          = f.text_field :kanriku, value: @field_record.kanriku
+      tr
+        td
+          |調査年度
+        td
+          = f.text_field :nendo, value: @field_record.nendo
+      tr
+        td
+          |林班
+        td
+          = f.text_field :rinpan, value: @field_record.rinpan
+      tr
+        td
+          |伐区番号
+        td
+          = f.text_field :bakku, value: @field_record.bakku
+      tr
+        td
+          |伐区番号
+        td
+          = f.text_field :shiban, value: @field_record.shiban
+      tr
+        td
+          |小班
+        td
+          = f.text_field :shouhan, value: @field_record.shouhan
+      tr
+        td
+          |指定区分
+        td
+          = f.text_field :kubun, value: @field_record.kubun
+      tr
+        td
+          |代表樹種
+        td
+          = f.text_field :daihyou, value: @field_record.daihyou
+
+  - if @field_record.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@field_record.errors.count, "error")} prohibited this field_record from being saved:"
+      ul
+        - @field_record.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

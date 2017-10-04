@@ -4,7 +4,7 @@ class CreateFieldRecords < ActiveRecord::Migration[5.1]
       t.integer :kanriku
       t.integer :nendo
       t.integer :rinpan
-      t.integer :bakku
+      t.string :bakku
       t.integer :shiban
       t.integer :shouhan
       t.integer :kubun

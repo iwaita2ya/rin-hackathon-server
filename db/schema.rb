@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002201412) do
+ActiveRecord::Schema.define(version: 20171004034131) do
 
   create_table "field_record_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "bangou"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20171002201412) do
     t.integer "kanriku"
     t.integer "nendo"
     t.integer "rinpan"
-    t.integer "bakku"
+    t.string "bakku"
     t.integer "shiban"
     t.integer "shouhan"
     t.integer "kubun"
