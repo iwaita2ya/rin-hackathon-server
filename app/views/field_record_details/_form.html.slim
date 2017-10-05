@@ -1,4 +1,32 @@
 = form_for @field_record_detail do |f|
+  table
+    thead
+      tr
+        th 野帳ID
+        th 林班(必須)
+        th 小班(必須)
+        th 調査番号
+        th 樹種
+        th 直径
+        th 樹高
+        th 品位
+        th 歩止
+        th 緯度
+        th 経度
+    tbody
+      tr
+        td = f.text_field :field_record_id, value: @field_record_detail.field_record_id
+        td = f.text_field :rinpan, value: @field_record_detail.field_record.nil? ? '' : @field_record_detail.field_record.rinpan
+        td = f.text_field :shouhan, value: @field_record_detail.field_record.nil? ? '' : @field_record_detail.field_record.shouhan
+        td = f.text_field :bangou, value: @field_record_detail.bangou
+        td = f.text_field :jushu, value: @field_record_detail.jushu
+        td = f.text_field :tyokkei, value: @field_record_detail.tyokkei
+        td = f.text_field :jukou, value: @field_record_detail.jukou
+        td = f.text_field :hini, value: @field_record_detail.hini
+        td = f.text_field :budomari, value: @field_record_detail.budomari
+        td = f.text_field :lat, value: @field_record_detail.lat
+        td = f.text_field :lon, value: @field_record_detail.lon
+
   - if @field_record_detail.errors.any?
     #error_explanation
       h2 = "#{pluralize(@field_record_detail.errors.count, "error")} prohibited this field_record_detail from being saved:"

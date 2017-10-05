@@ -41,6 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'ruby-debug-ide', '0.6.1.beta9'
   gem 'debase'
+  gem 'html2slim'
 end
 
 group :development do

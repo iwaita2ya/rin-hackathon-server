@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 298486374
   kanriku: 12
   nendo: 2017
   rinpan: 078
@@ -11,6 +12,7 @@ one:
   daihyou: 23
 
 two:
+  id: 980190962
   kanriku: 12
   nendo: 2017
   rinpan: 078

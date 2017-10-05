@@ -1,6 +1,29 @@
 p#notice = notice
 
+= form_for @field_record do |f|
+  table.table.table-bordered.table-hover.table-striped
+    thead
+      tr
+        th ID
+        th 管理区
+        th 調査年度
+        th 林班
+        th 伐区
+        th 支番
+        th 小班
+        th 区分
+        th 代表樹種
+    tbody
+      tr
+        td = f.text_field :id, value: @field_record.id
+        td = f.text_field :kanriku, value: @field_record.kanriku
+        td = f.text_field :nendo, value: @field_record.nendo
+        td = f.text_field :rinpan, value: @field_record.rinpan
+        td = f.text_field :bakku, value: @field_record.bakku
+        td = f.text_field :shiban, value: @field_record.shiban
+        td = f.text_field :shouhan, value: @field_record.shouhan
+        td = f.text_field :kubun, value: @field_record.kubun
+        td = f.text_field :daihyou, value: @field_record.daihyou
 
-= link_to 'Edit', edit_field_record_path(@field_record)
-'  |
-= link_to 'Back', field_records_path
+= link_to '編集', edit_field_record_path(@field_record), :type => "button", :class => "btn btn-primary"
+= link_to '戻る', field_records_path, :type => "button", :class => "btn btn-default"

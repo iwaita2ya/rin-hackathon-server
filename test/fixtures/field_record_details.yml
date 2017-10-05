@@ -1,23 +1,78 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+frd001:
   bangou: 1
-  jushu: 1
-  tyokkei: 1
-  jukou: 1
+  jushu: 23
+  tyokkei: 16
+  jukou: 18
   hini: 1
-  budomari: 9.99
-  lat: 9.99
-  lon: 9.99
-  field_record: one
+  budomari: 0.55
+  lat: 42.94038817
+  lon: 143.46217521
+  field_record: 298486374
 
-two:
+frd002:
   bangou: 1
-  jushu: 1
-  tyokkei: 1
-  jukou: 1
+  jushu: 23
+  tyokkei: 16
+  jukou: 22
   hini: 1
-  budomari: 9.99
-  lat: 9.99
-  lon: 9.99
-  field_record: two
+  budomari: 0.50
+  lat: 42.93171800
+  lon: 143.47209600
+  field_record: 298486374
+
+frd003:
+  bangou: 1
+  jushu: 23
+  tyokkei: 17
+  jukou: 18
+  hini: 1
+  budomari: 0.50
+  lat: 42.93166600
+  lon: 143.47261200
+  field_record: 298486374
+
+frd004:
+  bangou: 1
+  jushu: 23
+  tyokkei: 18
+  jukou: 22
+  hini: 1
+  budomari: 0.55
+  lat: 42.93193000
+  lon: 143.47282800
+  field_record: 298486374
+
+frd005:
+  bangou: 1
+  jushu: 23
+  tyokkei: 19
+  jukou: 20
+  hini: 1
+  budomari: 0.55
+  lat: 42.93170400
+  lon: 143.47306300
+  field_record: 298486374
+
+frd006:
+  bangou: 1
+  jushu: 23
+  tyokkei: 20
+  jukou: 18
+  hini: 1
+  budomari: 0.70
+  lat: 42.93214600
+  lon: 143.47324200
+  field_record: 298486374
+
+frd007:
+  bangou: 1
+  jushu: 23
+  tyokkei: 20
+  jukou: 17
+  hini: 1
+  budomari: 0.55
+  lat: 42.94038817
+  lon: 143.93229600
+  field_record: 298486374

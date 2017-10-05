@@ -1,19 +1,53 @@
-h1 Listing field_record_details
-
-table
-  thead
+h3 立木調査野帳
+h4 個別データ
+table.table.table-bordered.table-striped.table-hover
+  thead.thead-inverse
     tr
-      th
-      th
-      th
-
+      th 野帳ID
+      th 調査番号
+      th 樹種
+      th 直径
+      th 樹高
+      th 品位
+      th 歩止
+      th 緯度
+      th 経度
+      th 作成日
+      th 更新日
+      th アクション
   tbody
     - @field_record_details.each do |field_record_detail|
       tr
-        td = link_to 'Show', field_record_detail
-        td = link_to 'Edit', edit_field_record_detail_path(field_record_detail)
-        td = link_to 'Destroy', field_record_detail, data: { confirm: 'Are you sure?' }, method: :delete
+        th scope="row"
+          span = field_record_detail.field_record_id
+        td
+          span = field_record_detail.bangou
+        td
+          span = field_record_detail.jushu
+        td
+          span = field_record_detail.tyokkei
+        td
+          span = field_record_detail.jukou
+        td
+          span = field_record_detail.hini
+        td
+          span = field_record_detail.budomari
+        td
+          span = field_record_detail.lat
+        td
+          span = field_record_detail.lon
+        td
+          span = field_record_detail.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
+        td
+          span = field_record_detail.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
+        td
+          span = link_to '表示', field_record_detail
+          '|
+          span = link_to '編集', edit_field_record_detail_path(field_record_detail)
+          '|
+          span = link_to '削除', field_record_detail, data: {confirm: '削除しますか?'}, method: :delete
 
 br
 
-= link_to 'New Field record detail', new_field_record_detail_path
+= link_to '新規追加', new_field_record_detail_path, :type => "button", :class => "btn btn-primary"
+= link_to '立木調査野帳へ戻る', field_records_path, :type => "button", :class => "btn btn-default"

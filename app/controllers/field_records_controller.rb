@@ -1,6 +1,29 @@
 class FieldRecordsController < ApplicationController
   before_action :set_field_record, only: [:show, :edit, :update, :destroy]
 
+  def export_pgpi
+    # 樹種コード
+    @tree_label = {
+        1=>'イチイ',
+        2=>'スギ',
+        3=>'アカマツ',
+        5=>'ヨーアカマツ',
+        7=>'ゴヨウ',
+        10=>'ストロブ',
+        16=>'ヒバ',
+        17=>'カラマツ',
+        23 => 'トドマツ',
+        25 => 'エゾマツ',
+        26 => 'アカエゾ',
+        27 => 'トウヒ',
+        39 => 'ソノタ針',
+        40 => 'コミ',
+    }
+
+    @field_record_details = FieldRecordDetail.where(field_record_id: params[:id])
+    # render :handlers => :builder, :formats => :xml
+  end
+
   # GET /field_records
   # GET /field_records.json
   def index
@@ -28,7 +51,7 @@ class FieldRecordsController < ApplicationController
 
     respond_to do |format|
       if @field_record.save
-        format.html { redirect_to @field_record, notice: 'Field record was successfully created.' }
+        format.html { redirect_to @field_record, notice: 'レコードが追加されました' }
         format.json { render :show, status: :created, location: @field_record }
       else
         format.html { render :new }
@@ -42,7 +65,7 @@ class FieldRecordsController < ApplicationController
   def update
     respond_to do |format|
       if @field_record.update(field_record_params)
-        format.html { redirect_to @field_record, notice: 'Field record was successfully updated.' }
+        format.html { redirect_to @field_record, notice: '正常に更新されました' }
         format.json { render :show, status: :ok, location: @field_record }
       else
         format.html { render :edit }
@@ -56,7 +79,7 @@ class FieldRecordsController < ApplicationController
   def destroy
     @field_record.destroy
     respond_to do |format|
-      format.html { redirect_to field_records_url, notice: 'Field record was successfully destroyed.' }
+      format.html { redirect_to field_records_url, notice: '正常に削除されました' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +92,6 @@ class FieldRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_record_params
-      params.fetch(:field_record, {})
+      params.fetch(:field_record, {}).permit(:id, :kanriku, :nendo, :rinpan, :bakku, :shiban, :shouhan, :kubun, :daihyou)
     end
 end

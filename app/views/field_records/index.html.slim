@@ -4,7 +4,7 @@ table.table.table-bordered.table-striped.table-hover
   thead.thead-inverse
     tr
       th
-        |ID
+        |野帳ID
       th
         |管理区
       th
@@ -49,9 +49,9 @@ table.table.table-bordered.table-striped.table-hover
         td
           span = field_record.daihyou
         td
-          span = field_record.created_at
+          span = field_record.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
         td
-          span = field_record.updated_at
+          span = field_record.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
         td
           span = link_to '詳細', field_record
           '|
@@ -63,4 +63,4 @@ table.table.table-bordered.table-striped.table-hover
 br
 
 = link_to '新規追加', new_field_record_path, :type => "button", :class => "btn btn-primary"
-= link_to '詳細データ一覧へ', field_record_details_path, :type => "button", :class => "btn btn-default"
+= link_to '個別データ', field_record_details_path, :type => "button", :class => "btn btn-default"

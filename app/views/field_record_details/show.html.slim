@@ -1,6 +1,27 @@
 p#notice = notice
 
+= form_for @field_record_detail do |f|
+  table
+    thead
+      tr
+        th 調査番号
+        th 樹種
+        th 直径
+        th 樹高
+        th 品位
+        th 歩止
+        th 緯度
+        th 経度
+    tbody
+      tr
+        td = f.text_field :bangou, value: @field_record_detail.bangou
+        td = f.text_field :jushu, value: @field_record_detail.jushu
+        td = f.text_field :tyokkei, value: @field_record_detail.tyokkei
+        td = f.text_field :jukou, value: @field_record_detail.jukou
+        td = f.text_field :hini, value: @field_record_detail.hini
+        td = f.text_field :budomari, value: @field_record_detail.budomari
+        td = f.text_field :lat, value: @field_record_detail.lat
+        td = f.text_field :lon, value: @field_record_detail.lon
 
-= link_to 'Edit', edit_field_record_detail_path(@field_record_detail)
-'  |
-= link_to 'Back', field_record_details_path
+= link_to '編集', edit_field_record_detail_path(@field_record_detail), :type => "button", :class => "btn btn-primary"
+= link_to '戻る', field_record_details_path, :type => "button", :class => "btn btn-default"
