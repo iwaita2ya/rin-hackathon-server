@@ -6,7 +6,7 @@ frd001:
   tyokkei: 16
   jukou: 18
   hini: 1
-  budomari: 0.55
+  budomari: 55
   lat: 42.94038817
   lon: 143.46217521
   field_record: 298486374
@@ -17,7 +17,7 @@ frd002:
   tyokkei: 16
   jukou: 22
   hini: 1
-  budomari: 0.50
+  budomari: 50
   lat: 42.93171800
   lon: 143.47209600
   field_record: 298486374
@@ -28,7 +28,7 @@ frd003:
   tyokkei: 17
   jukou: 18
   hini: 1
-  budomari: 0.50
+  budomari: 50
   lat: 42.93166600
   lon: 143.47261200
   field_record: 298486374
@@ -39,7 +39,7 @@ frd004:
   tyokkei: 18
   jukou: 22
   hini: 1
-  budomari: 0.55
+  budomari: 55
   lat: 42.93193000
   lon: 143.47282800
   field_record: 298486374
@@ -50,7 +50,7 @@ frd005:
   tyokkei: 19
   jukou: 20
   hini: 1
-  budomari: 0.55
+  budomari: 55
   lat: 42.93170400
   lon: 143.47306300
   field_record: 298486374
@@ -61,7 +61,7 @@ frd006:
   tyokkei: 20
   jukou: 18
   hini: 1
-  budomari: 0.70
+  budomari: 70
   lat: 42.93214600
   lon: 143.47324200
   field_record: 298486374
@@ -72,7 +72,7 @@ frd007:
   tyokkei: 20
   jukou: 17
   hini: 1
-  budomari: 0.55
+  budomari: 55
   lat: 42.94038817
   lon: 143.93229600
   field_record: 298486374

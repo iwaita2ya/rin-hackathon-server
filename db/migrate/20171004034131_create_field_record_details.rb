@@ -6,7 +6,7 @@ class CreateFieldRecordDetails < ActiveRecord::Migration[5.1]
       t.integer :tyokkei
       t.integer :jukou
       t.integer :hini
-      t.decimal :budomari, precision: 3, scale: 2
+      t.integer :budomari
       t.decimal :lat, precision: 11, scale: 8
       t.decimal :lon, precision: 11, scale: 8
       t.references :field_record, foreign_key: true

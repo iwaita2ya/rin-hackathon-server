@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171004034131) do
     t.integer "tyokkei"
     t.integer "jukou"
     t.integer "hini"
-    t.decimal "budomari", precision: 3, scale: 2
+    t.integer "budomari"
     t.decimal "lat", precision: 11, scale: 8
     t.decimal "lon", precision: 11, scale: 8
     t.bigint "field_record_id"

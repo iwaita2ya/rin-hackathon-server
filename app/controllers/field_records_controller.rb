@@ -38,6 +38,7 @@ class FieldRecordsController < ApplicationController
   # GET /field_records/new
   def new
     @field_record = FieldRecord.new
+    @field_record.field_record_details.build
   end
 
   # GET /field_records/1/edit
@@ -47,7 +48,8 @@ class FieldRecordsController < ApplicationController
   # POST /field_records
   # POST /field_records.json
   def create
-    @field_record = FieldRecord.new(field_record_params)
+    # @field_record = FieldRecord.new(field_record_params)
+    @field_record = FieldRecord.create(field_record_params)
 
     respond_to do |format|
       if @field_record.save
@@ -64,7 +66,7 @@ class FieldRecordsController < ApplicationController
   # PATCH/PUT /field_records/1.json
   def update
     respond_to do |format|
-      if @field_record.update(field_record_params)
+      if @field_record.update(update_field_record_params)
         format.html { redirect_to @field_record, notice: '正常に更新されました' }
         format.json { render :show, status: :ok, location: @field_record }
       else
@@ -92,6 +94,11 @@ class FieldRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_record_params
-      params.fetch(:field_record, {}).permit(:id, :kanriku, :nendo, :rinpan, :bakku, :shiban, :shouhan, :kubun, :daihyou)
+      params.fetch(:field_record, {}).permit(:id, :kanriku, :nendo, :rinpan, :bakku, :shiban, :shouhan, :kubun, :daihyou, field_record_details_attributes: [:bangou, :jushu, :tyokkei, :jukou, :hini, :budomari, :lat, :lon])
     end
+
+    def update_field_record_params
+      params.fetch(:field_record, {}).permit(:id, :kanriku, :nendo, :rinpan, :bakku, :shiban, :shouhan, :kubun, :daihyou, field_record_details_attributes: [:bangou, :jushu, :tyokkei, :jukou, :hini, :budomari, :lat, :lon, :_destroy, :id])
+    end
+
 end

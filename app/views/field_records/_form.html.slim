@@ -2,7 +2,6 @@
   table.table.table-bordered.table-hover.table-striped
     thead
       tr
-        th ID
         th 管理区
         th 調査年度
         th 林班
@@ -11,9 +10,16 @@
         th 小班
         th 区分
         th 代表樹種
+        th 調査番号
+        th 樹種
+        th 直径
+        th 樹高
+        th 品位
+        th 歩止
+        th 緯度
+        th 経度
     tbody
       tr
-        td = f.text_field :id, value: @field_record.id
         td = f.text_field :kanriku, value: @field_record.kanriku
         td = f.text_field :nendo, value: @field_record.nendo
         td = f.text_field :rinpan, value: @field_record.rinpan
@@ -22,7 +28,15 @@
         td = f.text_field :shouhan, value: @field_record.shouhan
         td = f.text_field :kubun, value: @field_record.kubun
         td = f.text_field :daihyou, value: @field_record.daihyou
-
+        = f.fields_for :field_record_details do |d|
+          td = d.text_field :bangou
+          td = d.text_field :jushu
+          td = d.text_field :tyokkei
+          td = d.text_field :jukou
+          td = d.text_field :hini
+          td = d.text_field :budomari
+          td = d.text_field :lat
+          td = d.text_field :lon
   - if @field_record.errors.any?
     #error_explanation
       h2 = "#{pluralize(@field_record.errors.count, "error")} prohibited this field_record from being saved:"
@@ -30,4 +44,4 @@
         - @field_record.errors.full_messages.each do |message|
           li = message
 
-  .actions = f.submit
+  .actions = f.submit '確定'
