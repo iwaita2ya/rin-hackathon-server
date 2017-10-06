@@ -1,4 +1,5 @@
 class FieldRecordsController < ApplicationController
+  protect_from_forgery :except => [:create]
   before_action :set_field_record, only: [:show, :edit, :update, :destroy]
 
   def export_pgpi
