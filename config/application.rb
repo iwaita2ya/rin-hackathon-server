@@ -17,5 +17,8 @@ module Hph2017
 
     # use slim template
     config.generators.template_engine = :slim
+
+    # set timezone
+    config.time_zone = 'Tokyo'
   end
 end
