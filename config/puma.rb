@@ -63,6 +63,13 @@ tmp_dir = "#{app_dir}/tmp"
 rails_env = ENV['RAILS_ENV'] || "development"
 environment rails_env
 
+# Daemonize the server into the background. Highly suggest that
+# this be combined with “pidfile” and “stdout_redirect”.
+#
+# The default is “false”.
+#
+daemonize true
+
 # socketでbindする。nginxからsocket経由で接続するため
 bind "unix://#{tmp_dir}/sockets/puma.sock"
 
