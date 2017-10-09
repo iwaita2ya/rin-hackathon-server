@@ -74,4 +74,7 @@
                   span.glyphicon.glyphicon-remove style="color: red;"
 
     span = link_to '新規追加', new_field_record_path, :type => "button", :class => "btn btn-primary"
-    span = link_to '立木データ', field_record_details_path, :type => "button", :class => "btn btn-default"
+    span
+      = link_to(field_record_details_path, {:type => "button", :class => "btn btn-default"}) do
+        span.glyphicon.glyphicon-tree-conifer style="color: green;"
+        |立木データ
