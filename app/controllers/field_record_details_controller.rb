@@ -69,6 +69,6 @@ class FieldRecordDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_record_detail_params
-      params.fetch(:field_record_detail, {})
+      params.fetch(:field_record_detail, {}).permit(:id, :bangou, :jushu, :tyokkei, :jukou, :hini, :budomari, :lat, :lon, :field_record_id)
     end
 end
