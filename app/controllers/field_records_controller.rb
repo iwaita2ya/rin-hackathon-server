@@ -22,7 +22,10 @@ class FieldRecordsController < ApplicationController
     }
 
     @field_record_details = FieldRecordDetail.where(field_record_id: params[:id])
-    # render :handlers => :builder, :formats => :xml
+
+    # .gpx ファイルとして出力
+    _filename = "立木調査野帳_#{params[:id].to_s}.gpx"
+    headers['Content-Disposition'] = "attachment; filename=\"#{_filename}\""
   end
 
   # GET /field_records
