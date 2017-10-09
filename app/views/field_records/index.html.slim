@@ -52,14 +52,19 @@ table.table.table-bordered.table-striped.table-hover
           span = field_record.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
         td
           span = field_record.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
-        td
-          span = link_to '詳細', field_record
-          '|
-          span = link_to '編集', edit_field_record_path(field_record)
-          '|
-          span = link_to '削除', field_record, data: { confirm: "#{field_record.id} を削除しますか?" }, method: :delete
-          '|
-          span = link_to 'pgpi出力', {:controller => :field_records, :action => :export_pgpi, :id => field_record.id}
+        td.action
+          span
+            = link_to({:controller => :field_records, :action => :export_data, :nendo => field_record.nendo, :rinpan => field_record.rinpan, :shouhan => field_record.shouhan}, {:type => "button", :class => "btn btn-default"}) do
+              span.glyphicon.glyphicon-list-alt
+          span
+            = link_to({:controller => :field_records, :action => :export_pgpi, :id => field_record.id}, {:type => "button", :class => "btn btn-default"}) do
+              span.glyphicon.glyphicon-globe
+          span
+            = link_to(edit_field_record_path(field_record), {:type => "button", :class => "btn btn-default"}) do
+              span.glyphicon.glyphicon-pencil
+          span
+            = link_to(field_record, {:type => "button", :class => "btn btn-default", data: { confirm: "#{field_record.id} を削除しますか?" }, method: :delete}) do
+              span.glyphicon.glyphicon-remove style="color: red;"
 br
 
 = link_to '新規追加', new_field_record_path, :type => "button", :class => "btn btn-primary"

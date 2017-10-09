@@ -1,0 +1,52 @@
+#export-data
+  .container-fluid
+    .title.row
+      span.col-md-12
+        h4 = '立木調査野帳'
+  table.box-header.table.table-bordered.table-striped
+    thead
+      tr.row
+        th.col-md-1 = '管理区'
+        th.col-md-2 = '調査年度'
+        th.col-md-2 = '林班'
+        th.col-md-2 = '伐区番号'
+        th.col-md-1 = '支番'
+        th.col-md-2 = '小班'
+        th.col-md-1 = '指定区分'
+        th.col-md-1 = '代表樹種'
+    tbody
+      tr.row
+        td.col-md-1 = @field_records[0]['kanriku']
+        td.col-md-2 = @field_records[0]['nendo']
+        td.col-md-2 = @field_records[0]['rinpan']
+        td.col-md-2 = @field_records[0]['bakku']
+        td.col-md-1 = @field_records[0]['shiban']
+        td.col-md-2 = @field_records[0]['shouhan']
+        td.col-md-1 = @field_records[0]['kubun']
+        td.col-md-1 = @field_records[0]['jushu']
+  table.box-main.table.table-bordered.table-striped
+    thead
+      tr.row
+        th.col-md-1 = '調査番号'
+        th.col-md-2 = '樹種'
+        th.col-md-1 = '直径'
+        th.col-md-1 = '樹高'
+        th.col-md-1 = '品位'
+        th.col-md-1 = '歩止(%)'
+        th.col-md-1 = '本数'
+        th.col-md-2 = '修正直径'
+        th.col-md-2 = '備考'
+    tbody
+      - @field_records.each.with_index(1) do |field_record, bangou|
+        tr.row
+          td.col-md-1 = sprintf("%03d", bangou)
+          td.main-jushu.col-md-2
+            span = @tree_label[field_record['jushu']]
+            span = "[#{field_record['jushu']}]"
+          td.col-md-1 = field_record['tyokkei']
+          td.col-md-1 = field_record['jukou']
+          td.col-md-1 = field_record['hini']
+          td.col-md-1 = field_record['budomari']
+          td.col-md-1 = field_record['honsu']
+          td.col-md-2 = ''
+          td.col-md-2 = ''

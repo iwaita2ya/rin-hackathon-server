@@ -1,31 +1,25 @@
 class FieldRecordsController < ApplicationController
   protect_from_forgery :except => [:create]
   before_action :set_field_record, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_common, :only => [:export_pgpi, :export_data]
 
   def export_pgpi
-    # 樹種コード
-    @tree_label = {
-        1=>'イチイ',
-        2=>'スギ',
-        3=>'アカマツ',
-        5=>'ヨーアカマツ',
-        7=>'ゴヨウ',
-        10=>'ストロブ',
-        16=>'ヒバ',
-        17=>'カラマツ',
-        23 => 'トドマツ',
-        25 => 'エゾマツ',
-        26 => 'アカエゾ',
-        27 => 'トウヒ',
-        39 => 'ソノタ針',
-        40 => 'コミ',
-    }
-
     @field_record_details = FieldRecordDetail.where(field_record_id: params[:id])
-
     # .gpx ファイルとして出力
     _filename = "立木調査野帳_#{params[:id].to_s}.gpx"
-    headers['Content-Disposition'] = "attachment; filename=\"#{_filename}\""
+    headers['Content-Disposition'] = "attachment; filename=\'#{_filename}\'"
+  end
+
+  def export_data
+    sql = <<-EOS
+    SELECT kanriku, nendo, rinpan, bakku, shiban, shouhan, kubun, jushu, `tyokkei`, `jukou`, `hini`, `budomari`, COUNT(jushu) AS honsu
+    FROM (SELECT * FROM `field_records` WHERE `nendo` = #{params[:nendo]} AND `rinpan` = #{params[:rinpan]} AND `shouhan` = #{params[:shouhan]}) fr
+    INNER JOIN `field_record_details` frd ON frd.`field_record_id` = fr.`id`
+    GROUP BY kanriku, nendo, rinpan, bakku, shiban, shouhan, kubun, jushu, `tyokkei`, `jukou`, `hini`, `budomari`
+    ORDER BY jushu, `tyokkei`, `jukou`, `hini`, `budomari`;
+    EOS
+
+    @field_records = ActiveRecord::Base.connection.select_all(sql).to_hash
   end
 
   # GET /field_records
@@ -105,4 +99,23 @@ class FieldRecordsController < ApplicationController
       params.fetch(:field_record, {}).permit(:id, :kanriku, :nendo, :rinpan, :bakku, :shiban, :shouhan, :kubun, :daihyou, field_record_details_attributes: [:bangou, :jushu, :tyokkei, :jukou, :hini, :budomari, :lat, :lon, :_destroy, :id])
     end
 
+    def prepare_common
+      # 樹種コード
+      @tree_label = {
+          1=>'イチイ',
+          2=>'スギ',
+          3=>'アカマツ',
+          5=>'ヨーアカマツ',
+          7=>'ゴヨウ',
+          10=>'ストロブ',
+          16=>'ヒバ',
+          17=>'カラマツ',
+          23 => 'トドマツ',
+          25 => 'エゾマツ',
+          26 => 'アカエゾ',
+          27 => 'トウヒ',
+          39 => 'ソノタ針',
+          40 => 'コミ',
+      }
+    end
 end
