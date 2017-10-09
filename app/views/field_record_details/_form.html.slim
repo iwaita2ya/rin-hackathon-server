@@ -1,37 +1,39 @@
 = form_for @field_record_detail do |f|
-  table
-    thead
-      tr
-        th 野帳ID
-        th 林班(必須)
-        th 小班(必須)
-        th 調査番号
-        th 樹種
-        th 直径
-        th 樹高
-        th 品位
-        th 歩止
-        th 緯度
-        th 経度
+  table.table.table-bordered.table-hover.table-striped
+    thead.thead-inverse
+      tr.row
+        th.col-md-1 野帳ID
+        th.col-md-1 調査年度
+        th.col-md-2 林班
+        th.col-md-1 小班
+        th.col-md-1 樹種
+        th.col-md-1 直径
+        th.col-md-1 樹高
+        th.col-md-1 品位
+        th.col-md-1 歩止
+        th.col-md-1 緯度
+        th.col-md-1 経度
     tbody
-      tr
-        td = f.text_field :field_record_id, value: @field_record_detail.field_record_id
-        td = f.text_field :rinpan, value: @field_record_detail.field_record.nil? ? '' : @field_record_detail.field_record.rinpan
-        td = f.text_field :shouhan, value: @field_record_detail.field_record.nil? ? '' : @field_record_detail.field_record.shouhan
-        td = f.text_field :bangou, value: @field_record_detail.bangou
-        td = f.text_field :jushu, value: @field_record_detail.jushu
-        td = f.text_field :tyokkei, value: @field_record_detail.tyokkei
-        td = f.text_field :jukou, value: @field_record_detail.jukou
-        td = f.text_field :hini, value: @field_record_detail.hini
-        td = f.text_field :budomari, value: @field_record_detail.budomari
-        td = f.text_field :lat, value: @field_record_detail.lat
-        td = f.text_field :lon, value: @field_record_detail.lon
+      tr.row
+        td.col-md-1 = f.text_field :field_record_id, value: @field_record_detail.field_record_id
+        td.col-md-1 = f.text_field :nendo, value: @field_record_detail.field_record.nil? ? '' : @field_record_detail.field_record.nendo
+        td.col-md-1 = f.text_field :rinpan, value: @field_record_detail.field_record.nil? ? '' : @field_record_detail.field_record.rinpan
+        td.col-md-1 = f.text_field :shouhan, value: @field_record_detail.field_record.nil? ? '' : @field_record_detail.field_record.shouhan
+        td.col-md-1 = f.text_field :jushu, value: @field_record_detail.jushu
+        td.col-md-1 = f.text_field :tyokkei, value: @field_record_detail.tyokkei
+        td.col-md-1 = f.text_field :jukou, value: @field_record_detail.jukou
+        td.col-md-1 = f.text_field :hini, value: @field_record_detail.hini
+        td.col-md-1 = f.text_field :budomari, value: @field_record_detail.budomari
+        td.col-md-1 = f.text_field :lat, value: @field_record_detail.lat
+        td.col-md-1 = f.text_field :lon, value: @field_record_detail.lon
 
-  - if @field_record_detail.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@field_record_detail.errors.count, "error")} prohibited this field_record_detail from being saved:"
-      ul
-        - @field_record_detail.errors.full_messages.each do |message|
-          li = message
+  .row
+    - if @field_record_detail.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@field_record_detail.errors.count, "error")} prohibited this field_record_detail from being saved:"
+        ul
+          - @field_record_detail.errors.full_messages.each do |message|
+            li = message
 
-  .actions = f.submit '追加(更新)'
+  .actions = f.submit '確定', class: "btn btn-primary"
+  br

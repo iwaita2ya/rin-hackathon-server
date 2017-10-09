@@ -1,5 +1,6 @@
 class FieldRecordDetailsController < ApplicationController
   before_action :set_field_record_detail, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_common, :only => [:index]
 
   # GET /field_record_details
   # GET /field_record_details.json
@@ -70,5 +71,25 @@ class FieldRecordDetailsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_record_detail_params
       params.fetch(:field_record_detail, {}).permit(:id, :bangou, :jushu, :tyokkei, :jukou, :hini, :budomari, :lat, :lon, :field_record_id)
+    end
+
+    def prepare_common
+      # 樹種コード
+      @tree_label = {
+          1=>'イチイ',
+          2=>'スギ',
+          3=>'アカマツ',
+          5=>'ヨーアカマツ',
+          7=>'ゴヨウ',
+          10=>'ストロブ',
+          16=>'ヒバ',
+          17=>'カラマツ',
+          23 => 'トドマツ',
+          25 => 'エゾマツ',
+          26 => 'アカエゾ',
+          27 => 'トウヒ',
+          39 => 'ソノタ針',
+          40 => 'コミ',
+      }
     end
 end

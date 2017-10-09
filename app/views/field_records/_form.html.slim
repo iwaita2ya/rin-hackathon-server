@@ -1,49 +1,56 @@
 = form_for @field_record do |f|
   table.table.table-bordered.table-hover.table-striped
-    thead
-      tr
-        th 野帳ID
-        th 管理区
-        th 調査年度
-        th 林班
-        th 伐区
-        th 支番
-        th 小班
-        th 区分
-        th 代表樹種
-        th 調査番号
-        th 樹種
-        th 直径
-        th 樹高
-        th 品位
-        th 歩止
-        th 緯度
-        th 経度
+    thead.thead-inverse
+      tr.row
+        th.col-md-1 野帳ID
+        th.col-md-1 管理区
+        th.col-md-2 調査年度
+        th.col-md-2 林班
+        th.col-md-2 伐区番号
+        th.col-md-1 支番
+        th.col-md-1 小班
+        th.col-md-1 指定区分
+        th.col-md-1 代表樹種
     tbody
-      tr
-        td = f.text_field :id, value: @field_record.id
-        td = f.text_field :kanriku, value: @field_record.kanriku
-        td = f.text_field :nendo, value: @field_record.nendo
-        td = f.text_field :rinpan, value: @field_record.rinpan
-        td = f.text_field :bakku, value: @field_record.bakku
-        td = f.text_field :shiban, value: @field_record.shiban
-        td = f.text_field :shouhan, value: @field_record.shouhan
-        td = f.text_field :kubun, value: @field_record.kubun
-        td = f.text_field :daihyou, value: @field_record.daihyou
-        = f.fields_for :field_record_details do |d|
-          td = d.text_field :bangou
-          td = d.text_field :jushu
-          td = d.text_field :tyokkei
-          td = d.text_field :jukou
-          td = d.text_field :hini
-          td = d.text_field :budomari
-          td = d.text_field :lat
-          td = d.text_field :lon
-  - if @field_record.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@field_record.errors.count, "error")} prohibited this field_record from being saved:"
-      ul
-        - @field_record.errors.full_messages.each do |message|
-          li = message
+      tr.row
+        td.col-md-1 = f.text_field :id, value: @field_record.id
+        td.col-md-1 = f.text_field :kanriku, value: @field_record.kanriku
+        td.col-md-2 = f.text_field :nendo, value: @field_record.nendo
+        td.col-md-2 = f.text_field :rinpan, value: @field_record.rinpan
+        td.col-md-2 = f.text_field :bakku, value: @field_record.bakku
+        td.col-md-1 = f.text_field :shiban, value: @field_record.shiban
+        td.col-md-1 = f.text_field :shouhan, value: @field_record.shouhan
+        td.col-md-1 = f.text_field :kubun, value: @field_record.kubun
+        td.col-md-1 = f.text_field :daihyou, value: @field_record.daihyou
 
-  .actions = f.submit '確定'
+  table.table.table-bordered.table-hover.table-striped
+    thead.thead-inverse
+      tr.row
+        th.col-md-2 樹種
+        th.col-md-2 直径
+        th.col-md-2 樹高
+        th.col-md-1 品位
+        th.col-md-1 歩止
+        th.col-md-2 緯度
+        th.col-md-2 経度
+    = f.fields_for :field_record_details do |d|
+      tbody
+        tr.row
+          td.col-md-2 = d.text_field :jushu
+          td.col-md-2 = d.text_field :tyokkei
+          td.col-md-2 = d.text_field :jukou
+          td.col-md-1 = d.text_field :hini
+          td.col-md-1 = d.text_field :budomari
+          td.col-md-2 = d.text_field :lat
+          td.col-md-2 = d.text_field :lon
+
+  .row
+    - if @field_record.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@field_record.errors.count, "error")} prohibited this field_record from being saved:"
+        ul
+          - @field_record.errors.full_messages.each do |message|
+            li = message
+
+  .actions = f.submit '確定', class: "btn btn-primary"
+  br

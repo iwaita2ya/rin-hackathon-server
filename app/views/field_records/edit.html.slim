@@ -1,7 +1,9 @@
-h4 立木調査野帳の編集
+#field-record-edit
+  .container-fluid
+    .title.row
+      span.col-md-12
+        h4 立木調査野帳の編集
 
-== render 'form'
+    == render 'form'
 
-= link_to 'キャンセル', @field_record, :type=>"button", :class=>"btn btn-warning"
-= link_to '一覧に戻る', field_records_path, :type=>"button", :class=>"btn btn-default"
-
+    = link_to 'キャンセル', field_records_path, :type=>"button", :class=>"btn btn-warning"

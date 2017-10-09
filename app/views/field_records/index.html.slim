@@ -1,71 +1,77 @@
-h3 立木調査野帳
-h4 野帳データ
-table.table.table-bordered.table-striped.table-hover
-  thead.thead-inverse
-    tr
-      th
-        |野帳ID
-      th
-        |管理区
-      th
-        |調査年度
-      th
-        |林班
-      th
-        |伐区
-      th
-        |支番
-      th
-        |小班
-      th
-        |区分
-      th
-        |代表樹種
-      th
-        |作成日
-      th
-        |最終更新日
-      th
-        |アクション
-  tbody
-    - @field_records.each do |field_record|
-      tr
-        th scope="row"
-          span = field_record.id
-        td
-          span = field_record.kanriku
-        td
-          span = field_record.nendo
-        td
-          span = field_record.rinpan
-        td
-          span = field_record.bakku
-        td
-          span = field_record.shiban
-        td
-          span = field_record.shouhan
-        td
-          span = field_record.kubun
-        td
-          span = field_record.daihyou
-        td
-          span = field_record.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
-        td
-          span = field_record.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
-        td.action
-          span
-            = link_to({:controller => :field_records, :action => :export_data, :nendo => field_record.nendo, :rinpan => field_record.rinpan, :shouhan => field_record.shouhan}, {:type=>"button", :class=>"btn btn-default", :alt=>"詳細", :title=>"詳細"}) do
-              span.glyphicon.glyphicon-list-alt
-          span
-            = link_to({:controller => :field_records, :action => :export_pgpi, :id => field_record.id}, {:type => "button", :class => "btn btn-default", :alt=>"pgpi出力", :title=>"pgpi出力"}) do
-              span.glyphicon.glyphicon-globe
-          span
-            = link_to(edit_field_record_path(field_record), {:type => "button", :class => "btn btn-default", :alt=>"編集", :title=>"編集"}) do
-              span.glyphicon.glyphicon-pencil
-          span
-            = link_to(field_record, {:type => "button", :class => "btn btn-default", :alt=>"削除", :title=>"削除", data: { confirm: "#{field_record.id} を削除しますか?" }, method: :delete}) do
-              span.glyphicon.glyphicon-remove style="color: red;"
-br
+#field-record-index
+  .container-fluid
+    .title.row
+      span.col-md-12
+        h3 立木調査野帳
+    .title.row
+      span.col-md-12
+        h4 野帳データ
+    table.table.table-bordered.table-striped.table-hover
+      thead.thead-inverse
+        tr.row
+          th
+            |野帳ID
+          th
+            |管理区
+          th
+            |調査年度
+          th
+            |林班
+          th
+            |伐区
+          th
+            |支番
+          th
+            |小班
+          th
+            |区分
+          th
+            |代表樹種
+          th
+            |作成日
+          th
+            |最終更新日
+          th
+            |アクション
+      tbody
+        - @field_records.each do |field_record|
+          tr.row
+            th scope="row"
+              span = field_record.id
+            td
+              span = field_record.kanriku
+            td
+              span = field_record.nendo
+            td
+              span = field_record.rinpan
+            td
+              span = field_record.bakku
+            td
+              span = field_record.shiban
+            td
+              span = field_record.shouhan
+            td
+              span = field_record.kubun
+            td
+              span = field_record.daihyou
+            td
+              span = field_record.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
+            td
+              span = field_record.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
+            td.action
+              span
+                - if !field_record.nendo.nil? && !field_record.rinpan.nil? && !field_record.shouhan.nil?
+                  = link_to({:controller => :field_records, :action => :export_data, :nendo => field_record.nendo, :rinpan => field_record.rinpan, :shouhan => field_record.shouhan}, {:type=>"button", :class=>"btn btn-default", :alt=>"詳細", :title=>"詳細"}) do
+                    span.glyphicon.glyphicon-list-alt
+              span
+                = link_to({:controller => :field_records, :action => :export_pgpi, :id => field_record.id}, {:type => "button", :class => "btn btn-default", :alt=>"pgpi出力", :title=>"pgpi出力"}) do
+                  span.glyphicon.glyphicon-globe
+              span
+                = link_to(edit_field_record_path(field_record), {:type => "button", :class => "btn btn-default", :alt=>"編集", :title=>"編集"}) do
+                  span.glyphicon.glyphicon-pencil
+              span
+                = link_to(field_record, {:type => "button", :class => "btn btn-default", :alt=>"削除", :title=>"削除", data: { confirm: "#{field_record.id} を削除しますか?" }, method: :delete}) do
+                  span.glyphicon.glyphicon-remove style="color: red;"
 
-= link_to '新規追加', new_field_record_path, :type => "button", :class => "btn btn-primary"
-= link_to '立木データ', field_record_details_path, :type => "button", :class => "btn btn-default"
+    span = link_to '新規追加', new_field_record_path, :type => "button", :class => "btn btn-primary"
+    span = link_to '立木データ', field_record_details_path, :type => "button", :class => "btn btn-default"

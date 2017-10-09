@@ -4,7 +4,6 @@ table.table.table-bordered.table-striped.table-hover
   thead.thead-inverse
     tr
       th 野帳ID
-      th 調査番号
       th 樹種
       th 直径
       th 樹高
@@ -21,9 +20,8 @@ table.table.table-bordered.table-striped.table-hover
         th scope="row"
           span = field_record_detail.field_record_id
         td
-          span = field_record_detail.bangou
-        td
-          span = field_record_detail.jushu
+          span = @tree_label[field_record_detail.jushu]
+          span = "[#{field_record_detail.jushu}]"
         td
           span = field_record_detail.tyokkei
         td
@@ -41,11 +39,12 @@ table.table.table-bordered.table-striped.table-hover
         td
           span = field_record_detail.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
         td
-          span = link_to '表示', field_record_detail
-          '|
-          span = link_to '編集', edit_field_record_detail_path(field_record_detail)
-          '|
-          span = link_to '削除', field_record_detail, data: {confirm: '削除しますか?'}, method: :delete
+          span
+            = link_to(edit_field_record_detail_path(field_record_detail), {:type => "button", :class => "btn btn-default", :alt => "編集", :title => "編集"}) do
+              span.glyphicon.glyphicon-pencil
+          span
+            = link_to(field_record_detail, {:type => "button", :class => "btn btn-default", :alt => "削除", :title => "削除", data: {confirm: '削除しますか?'}, method: :delete}) do
+              span.glyphicon.glyphicon-remove style="color: red;"
 
 br
 

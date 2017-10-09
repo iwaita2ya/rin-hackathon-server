@@ -1,6 +1,9 @@
-h4 立木データの編集
+#field-record-edit
+  .container-fluid
+    .title.row
+      span.col-md-12
+        h4 立木データの編集
 
-== render 'form'
+    == render 'form'
 
-= link_to 'キャンセル', @field_record_detail, :type=>"button", :class=>"btn btn-warning"
-= link_to '戻る', field_record_details_path, :type=>"button", :class=>"btn btn-default"
+    = link_to 'キャンセル', field_record_details_path, :type=>"button", :class=>"btn btn-warning"

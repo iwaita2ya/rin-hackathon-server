@@ -1,6 +1,12 @@
-h3 立木調査野帳
-h4 新規追加（個別データ）
+#field-record-new
+  .container-fluid
+    .title.row
+      span.col-md-12
+        h3 立木調査野帳
+    .title.row
+      span.col-md-12
+        h4 新規追加(立木データ)
 
-== render 'form'
+    == render 'form'
 
-= link_to 'キャンセル', field_record_details_path, :type => "button", :class => "btn btn-default"
+    = link_to 'キャンセル', field_record_details_path, :type => "button", :class => "btn btn-warning"
