@@ -68,13 +68,13 @@ environment rails_env
 #
 # The default is “false”.
 #
-daemonize true
+daemonize false
 
 # socketでbindする。nginxからsocket経由で接続するため
 bind "unix://#{tmp_dir}/sockets/puma.sock"
 
 # ログ出力ファイルの指定
-stdout_redirect "#{tmp_dir}/logs/puma.stdout.log", "#{tmp_dir}/logs/puma.stderr.log", true
+#stdout_redirect "#{tmp_dir}/logs/puma.stdout.log", "#{tmp_dir}/logs/puma.stderr.log", true
 
 # pidとstateファイルの格納
 pidfile "#{tmp_dir}/pids/puma.pid"
