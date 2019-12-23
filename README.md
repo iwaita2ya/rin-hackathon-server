@@ -1,24 +1,7 @@
-# README
+### [北海道第一次産業ハッカソン: HPH](https://www.do-hack.org/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+北海道第一次産業ハッカソン in 池田町にて開発したアプリケーション。
+毎木調査時に音声認識により効率良くデータを記録・可視化するサービス。
+ハッカソンでは最優秀賞を受賞し、札幌で開催された[No Maps](https://no-maps.jp/)にて発表。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+こちらはサーバサイドのリポジトリになります。
