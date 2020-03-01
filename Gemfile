@@ -61,7 +61,7 @@ gem 'dotenv-rails'
 
 # bootstrap
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'bootstrap-sass', '~> 3.4'
 
 # slim
 gem 'slim-rails'
